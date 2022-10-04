@@ -12,7 +12,7 @@
 
 </div>
 
-Start Contributing from Oct 1
+2 pull-requests Per Github User 
 ---
 
 📢 **Register [here](https://hacktoberfest.digitalocean.com) for Hacktoberfest and make four pull requests (PRs) between October 1st-31st to grab free SWAGS 🔥.**
