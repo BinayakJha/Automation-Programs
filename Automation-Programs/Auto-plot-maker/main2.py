@@ -14,7 +14,7 @@ hide_streamlit_style = """
             footer {visibility: hidden;}
             .stConnectionStatus{visibility: hidden;}
             </style>
-            
+
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # upload a file button
@@ -30,7 +30,7 @@ st.write(" ")
 st.sidebar.markdown(
     """
 # Upload a .csv/.xlsx file
-(other types of file will be supported in the future) 
+(other types of file will be supported in the future)
 """
 )
 file_name = st.sidebar.file_uploader("Select a file to upload")
