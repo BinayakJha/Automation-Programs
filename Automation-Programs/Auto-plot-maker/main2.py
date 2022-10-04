@@ -14,12 +14,13 @@ hide_streamlit_style = """
             </style>
             
             """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 # upload a file button
 
 # Title
 st.title('Autoplot Maker And Predictor')
-st.subheader('To Upload a file please click on the [ > ] button which is at top left (for mobile)')
+st.subheader(
+    'To Upload a file please click on the [ > ] button which is at top left (for mobile)')
 st.write(' ')
 st.write(' ')
 st.write(' ')
@@ -30,10 +31,13 @@ st.sidebar.markdown("""
 file_name = st.sidebar.file_uploader("Select a file to upload")
 
 # Asking start
-X = st.text_input('[?] please enter the data table heading which you want to show in x axis = ')
-y = st.text_input('[?] please enter the data table heading which you want to show in y axis = ')
+X = st.text_input(
+    '[?] please enter the data table heading which you want to show in x axis = ')
+y = st.text_input(
+    '[?] please enter the data table heading which you want to show in y axis = ')
 # another line in smae axis
-y2 = st.text_input('[?] please enter the another data table heading which you want to show in y axis = (optional) [this will add another plot in the same graph)')
+y2 = st.text_input(
+    '[?] please enter the another data table heading which you want to show in y axis = (optional) [this will add another plot in the same graph)')
 
 
 x_label = st.text_input('[?] please enter the x axis label = ')
@@ -41,14 +45,16 @@ y_label = st.text_input('[?] please enter the y axis label = ')
 heading = st.text_input('[?] please enter the heading of the graph = ')
 
 st.write('Please enter the type of graph you want to show')
-type_graph = st.radio('', ['1. Line Plot ', '2. Scatter Plot', '3. Histogram', '4. Box Plot', '5. Bar Plot', '6. Pie Chart'])
+type_graph = st.radio('', ['1. Line Plot ', '2. Scatter Plot',
+                      '3. Histogram', '4. Box Plot', '5. Bar Plot', '6. Pie Chart'])
 # save graph
 st.write('')
 st.write('')
 save_graph = st.checkbox('Save Graph')
 
 if save_graph:
-    save_graph_name = st.text_input('Please enter the name of the graph you want to save = ')
+    save_graph_name = st.text_input(
+        'Please enter the name of the graph you want to save = ')
 
 
 st.write('')
@@ -62,12 +68,12 @@ if st.button('Plot Graph'):
     except (FileNotFoundError, IOError) as e:
         df = pd.read_excel(file_name)
     st.write('Plotting...')
-    fig= plt.figure()
-    
+    fig = plt.figure()
+
     if type_graph == '1. Line Plot ':
         plt.plot(df[X], df[y], label=y)
         try:
-            plt.plot(df[X], df[y2],label = y2)
+            plt.plot(df[X], df[y2], label=y2)
         except:
             pass
         plt.xlabel(x_label)
@@ -78,7 +84,7 @@ if st.button('Plot Graph'):
     elif type_graph == '2. Scatter Plot':
         plt.scatter(df[X], df[y], label=y)
         try:
-            plt.scatter(df[X], df[y2],label = y2)
+            plt.scatter(df[X], df[y2], label=y2)
         except:
             pass
         plt.xlabel(x_label)
@@ -99,9 +105,9 @@ if st.button('Plot Graph'):
         plt.title(heading)
         st.pyplot(fig)
     elif type_graph == '5. Bar Plot':
-        plt.bar(df[X], df[y], label=y) 
+        plt.bar(df[X], df[y], label=y)
         try:
-            plt.bar(df[X], df[y2],label = y2)
+            plt.bar(df[X], df[y2], label=y2)
         except:
             pass
         plt.xlabel(x_label)
@@ -118,7 +124,6 @@ if st.button('Plot Graph'):
     else:
         st.error('Error')
 
-    
     if save_graph:
         if os.path.exists(save_graph_name):
             st.write('File already exists')
@@ -143,7 +148,8 @@ if save_math:
     st.write('7. Quartile')
     st.write('8. Quartile 3')
     st.write('9. All')
-    me = st.selectbox('Select a number from list:', ['1', '2', '3', '4', '5', '6', '7', '8', '9'])
+    me = st.selectbox('Select a number from list:', [
+                      '1', '2', '3', '4', '5', '6', '7', '8', '9'])
     if st.button('Show The Answers'):
         if me == '1':
             std = df[y].std()
@@ -170,7 +176,7 @@ if save_math:
             q3 = df[y].quantile(0.75)
             st.write('Q3 = ', str(q3))
         elif me == '9':
-                st.write('''
+            st.write('''
                 Standard deviation of the data is {} \n
                 Mean of the data is {} \n
                 Variance of the data is {} \n
@@ -178,8 +184,8 @@ if save_math:
                 Range of the data is {} \n
                 Quartile1 of the data is {} \n
                 Quartile3 of the data is {} \n
-                '''.format(df[y].std(),df[y].mean(),df[y].var(),df[y].median(),df[y].max() - df[y].min(),df[y].quantile(0.25),df[y].quantile(0.75)))
-                st.write('Mode of the data is  ', df[y].mode())
+                '''.format(df[y].std(), df[y].mean(), df[y].var(), df[y].median(), df[y].max() - df[y].min(), df[y].quantile(0.25), df[y].quantile(0.75)))
+            st.write('Mode of the data is  ', df[y].mode())
 
 # prediction
 
@@ -195,4 +201,3 @@ if prediction:
         lr = LinearRegression()
         lr.fit(df[[X]], df[[y]])
         st.write('Prediction = ', lr.predict(df[[X]]))
-    
