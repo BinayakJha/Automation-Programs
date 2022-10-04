@@ -27,12 +27,10 @@ st.subheader(
 st.write(" ")
 st.write(" ")
 st.write(" ")
-st.sidebar.markdown(
-    """
+st.sidebar.markdown("""
 # Upload a .csv/.xlsx file
 (other types of file will be supported in the future)
-"""
-)
+""")
 file_name = st.sidebar.file_uploader("Select a file to upload")
 
 # Asking start
@@ -46,7 +44,6 @@ y = st.text_input(
 y2 = st.text_input(
     "[?] please enter the another data table heading which you want to show in y axis = (optional) [this will add another plot in the same graph)"
 )
-
 
 x_label = st.text_input("[?] please enter the x axis label = ")
 y_label = st.text_input("[?] please enter the y axis label = ")
@@ -71,9 +68,7 @@ save_graph = st.checkbox("Save Graph")
 
 if save_graph:
     save_graph_name = st.text_input(
-        "Please enter the name of the graph you want to save = "
-    )
-
+        "Please enter the name of the graph you want to save = ")
 
 st.write("")
 st.write("")
@@ -166,9 +161,8 @@ if save_math:
     st.write("7. Quartile")
     st.write("8. Quartile 3")
     st.write("9. All")
-    me = st.selectbox(
-        "Select a number from list:", ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    )
+    me = st.selectbox("Select a number from list:",
+                      ["1", "2", "3", "4", "5", "6", "7", "8", "9"])
     if st.button("Show The Answers"):
         if me == "1":
             std = df[y].std()
@@ -195,8 +189,7 @@ if save_math:
             q3 = df[y].quantile(0.75)
             st.write("Q3 = ", str(q3))
         elif me == "9":
-            st.write(
-                """
+            st.write("""
                 Standard deviation of the data is {} \n
                 Mean of the data is {} \n
                 Variance of the data is {} \n
@@ -205,15 +198,14 @@ if save_math:
                 Quartile1 of the data is {} \n
                 Quartile3 of the data is {} \n
                 """.format(
-                    df[y].std(),
-                    df[y].mean(),
-                    df[y].var(),
-                    df[y].median(),
-                    df[y].max() - df[y].min(),
-                    df[y].quantile(0.25),
-                    df[y].quantile(0.75),
-                )
-            )
+                df[y].std(),
+                df[y].mean(),
+                df[y].var(),
+                df[y].median(),
+                df[y].max() - df[y].min(),
+                df[y].quantile(0.25),
+                df[y].quantile(0.75),
+            ))
             st.write("Mode of the data is  ", df[y].mode())
 
 # prediction
