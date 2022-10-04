@@ -1,6 +1,7 @@
 import os
-import time
 import sys
+import time
+
 import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
