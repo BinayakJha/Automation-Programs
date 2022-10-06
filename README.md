@@ -12,7 +12,7 @@
 
 </div>
 
-Min - 2 pull-requests Per Github User (No spam all codes are reviewed before they are accepted)
+Min - 2 pull-requests Per Github User (No spam all codes are reviewed before they are accepted) <br>
 Max - 4 pull-requests Per Github User (NO spam all codes are reviewed before they are accepted)
 ---
 
