@@ -12,7 +12,8 @@
 
 </div>
 
-2 pull-requests Per Github User 
+Min - 2 pull-requests Per Github User (No spam all codes are reviewed before they are accepted)
+Max - 4 pull-requests Per Github User (NO spam all codes are reviewed before they are accepted)
 ---
 
 📢 **Register [here](https://hacktoberfest.digitalocean.com) for Hacktoberfest and make four pull requests (PRs) between October 1st-31st to grab free SWAGS 🔥.**
