@@ -39,7 +39,7 @@ Max - 4 pull-requests Per Github User (NO spam all codes are reviewed before the
 
 <br><br>
 
-# FAQs (Frequently Asked Questions)
+# FAQs (Frequently Asked Questions):
 
 - **Who can contribute?**
   - Anyone with a github account and who is signed up for
